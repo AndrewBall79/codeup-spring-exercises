@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ads</title>
+
+</head>
+<body>
+<nav th:replace="partials/partials :: navbar"></nav>
+
+<div>
+    <div th:each="ad : ${ads}">
+    <p class="ad-title" th:text="${ad.title}"></p>
+    <p class="ad-desc" th:text="${ad.description}"></p>
+    </div>
+</div>
+
+<nav th:replace="partials/partials :: footer"></nav>
+
+</body>
+</html>

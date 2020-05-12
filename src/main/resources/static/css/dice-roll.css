@@ -1,0 +1,326 @@
+body{
+    margin: 0px;
+}
+
+
+.main-page{
+    font-family: Helvetica, sans-serif;
+    color: ghostwhite;
+    margin: 0 -10px ;
+    text-shadow: black 2px 2px 5px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background: grey;
+    flex-direction: column;
+    border: red 2px solid;
+    padding: 8px;
+}
+#main-header1{
+    font-size: 80px;
+    margin: 0px;
+    font-family: Copperplate, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.containerGrid {
+
+    display: grid;
+    border: 2px lightgray solid;
+    box-shadow: black 2px 2px 4px;
+    height: 200px;
+    width: 225px;
+    grid-template-areas:
+            "box1 box2 box3 box4 box5"
+            "box6 box7 box8 box9 box10"
+            "box11 box12 box13 box14 box15"
+            "box16 box17 box18 box19 box20";
+}
+
+.rollDieFunction{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#boox1{
+    grid-area: box1;
+    width: 50px;
+    height: 50px;
+    background-color: darkblue;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox2{
+    grid-area: box2;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox3{
+    grid-area: box3;
+    width: 50px;
+    height: 50px;
+    background-color: royalblue;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox4{
+    grid-area: box4;
+    width: 50px;
+    height: 50px;
+    background-color: dodgerblue;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox5{
+    grid-area: box5;
+    width: 50px;
+    height: 50px;
+    background-color: lightskyblue;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox6{
+    grid-area: box6;
+    width: 50px;
+    height: 50px;
+    background-color: darkgreen;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox7{
+    grid-area: box7;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox8{
+    grid-area: box8;
+    width: 50px;
+    height: 50px;
+    background-color: yellowgreen;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox9{
+    grid-area: box9;
+    width: 50px;
+    height: 50px;
+    background-color: greenyellow;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox10{
+    grid-area: box10;
+    width: 50px;
+    height: 50px;
+    background-color: palegreen;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox11{
+    grid-area: box11;
+    width: 50px;
+    height: 50px;
+    background-color: darkred;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox12{
+    grid-area: box12;
+    width: 50px;
+    height: 50px;
+    background-color: firebrick;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox13{
+    grid-area: box13;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox14{
+    grid-area: box14;
+    width: 50px;
+    height: 50px;
+    background-color: darkorange;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox15{
+    grid-area: box15;
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox16{
+    grid-area: box16;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox17{
+    grid-area: box17;
+    width: 50px;
+    height: 50px;
+    background-color: grey;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox18{
+    grid-area: box18;
+    width: 50px;
+    height: 50px;
+    background-color: darkgrey;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox19{
+    grid-area: box19;
+    width: 50px;
+    height: 50px;
+    background-color: lightgrey;
+    animation-name: example;
+    animation-duration: 4s;
+}
+#boox20{
+    grid-area: box20;
+    width: 50px;
+    height: 50px;
+    background-color: whitesmoke;
+    animation-name: example;
+    animation-duration: 4s;
+}
+.box1{
+    grid-area: box1;
+    background: darkblue;
+}
+.box2{
+    grid-area: box2;
+    background: blue;
+}
+
+.box3{
+    grid-area: box3;
+    background: royalblue;
+}
+
+.box4{
+    grid-area: box4;
+    background: dodgerblue;
+}
+
+.box5{
+    grid-area: box5;
+    background: lightskyblue;
+}
+
+.box6{
+    grid-area: box6;
+    background: darkgreen;
+}
+
+.box7{
+    grid-area: box7;
+    background: green;
+}
+
+.box8{
+    grid-area: box8;
+    background: yellowgreen;
+}
+
+.box9{
+    grid-area: box9;
+    background: greenyellow;
+}
+
+.box10{
+    grid-area: box10;
+    background: palegreen;
+}
+
+.box11{
+    grid-area: box11;
+    background: darkred;
+}
+
+.box12{
+    grid-area: box12;
+    background:  firebrick;
+}
+
+.box13{
+    grid-area: box13;
+    background: red;
+
+}
+
+.box14{
+    grid-area: box14;
+    background: darkorange;
+}
+
+.box15{
+    grid-area: box15;
+    background: orange;
+}
+
+.box16{
+    grid-area: box16;
+    background: black;
+}
+
+.box17{
+    grid-area: box17;
+    background: grey;
+}
+
+.box18{
+    grid-area: box18;
+    background: darkgrey;
+}
+
+.box19{
+    grid-area: box19;
+    background: lightgrey;
+}
+
+.box20{
+    grid-area: box20;
+    background: whitesmoke;
+}
+
+.competent {
+    display: flex;
+    justify-content: center
+}
+
+#mySelect, #mySelect2 {
+    text-transform: uppercase;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    color: white;
+    padding: 20px;
+    background-color: darkslategrey;
+    width: 75%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
+<head th:replace="partials/partials :: head">
     <title>Join</title>
-</head>
+
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
+<br>
+<div class="container">
 <div class="alert alert-danger" th:if="${cohort == null}">
     Something bad happened!
 </div>
 
-<div class="alert alert-danger" th:unless="${cohort == null}">
+<div class="welcome" th:unless="${cohort == null}">
     <h1 th:text="${cohort}"></h1>
 </div>
-
-
+    <br>
 <form action="/join" method="post">
     <input type="text" name="cohort" id="cohort-ip" class="field" />
     <button>Join now</button>
 </form>
+</div>
 
 <nav th:replace="partials/partials :: footer"></nav>
 

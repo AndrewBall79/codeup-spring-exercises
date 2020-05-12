@@ -28,5 +28,6 @@ public class RollDiceController {
         }
         model.addAttribute( "rollResponse", rollResponse );
         return "roll-dice";
+
     }
 }

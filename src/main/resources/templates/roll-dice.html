@@ -1,33 +1,101 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Ad</title>
 
+
+<head th:replace="partials/partials :: head">
+    <title>Roll Dice</title>
 </head>
+
+
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
+<div class="container main-page">
+    <h1 id="main-header1" th:class="@{inferno}">DR&CG</h1>
+
+    <div th:if="${roll == null}">
+        <h2 id="main-header">ROLL SOME DICE and GUESS A NUMBER</h2>
+        <form class="main-page" action="/roll-dice" method="post">
+            <input type="text" name="roll" id="roll-ip" class="field"/>
+            <br>
+            <button>ROLL the DICE</button>
+            <br>
+
+            <!--        color box-->
+            <div class="containerGrid border" id="container-Grid">
+                <div class="container1 box1 darkblue"></div>
+                <div class="container1 box2 blue"></div>
+                <div class="container1 box3 royalblue"></div>
+                <div class="container1 box4 dodgerblue"></div>
+                <div class="container1 box5 lightskyblue"></div>
+                <div class="container1 box6 darkgreen"></div>
+                <div class="container1 box7 green"></div>
+                <div class="container1 box8 yellowgreen"></div>
+                <div class="container1 box9 greenyellow"></div>
+                <div class="container1 box10 palegreen"></div>
+                <div class="container1 box11 darkred"></div>
+                <div class="container1 box12 firebrick"></div>
+                <div class="container1 box13 red"></div>
+                <div class="container1 box14 darkorange"></div>
+                <div class="container1 box15 orange"></div>
+                <div class="container1 box16 black"></div>
+                <div class="container1 box17 grey" id="boox"></div>
+                <div class="container1 box18 darkgrey"></div>
+                <div class="container1 box19 lightgrey"></div>
+                <div class="container1 box20 whitesmoke"></div>
+            </div>
+
+            <br>
+
+            <!--//roll the dice pick a dice to roll-->
+
+            <form class="rollDieFunction border" method="post">
+                <label for="mySelect" class="border" th:class="competent">CHOOSE A DIE TO ROLL</label>
+                <br>
+                <select id="mySelect" onclick="">
+                    <option class="tetrahedron" value="4">Tetrahedron</option>
+                    <option class="rollDie" value="6">Six Sided Die</option>
+                    <option class="7sided" value="7">Seven Sided Die</option>
+                    <option class="8sided" value="8">Eight Sided Die</option>
+                    <option class="10sided" value="10">Ten Sided Die</option>
+                    <option class="twoDice" value="12">Two Six Sided Dice</option>
+                    <option class="TwentySidedDie" value="20">Twenty Sided Die</option>
+                </select>
+
+                <br>
+
+                <label for="mySelect2" class="competent border">HOW MANY TIMES DO YOU WANT TO ROLL?</label>
+                <br>
+                <select id="mySelect2">
+                    <option class="numberOfRolls" value="1">1</option>
+                    <option class="numberOfRolls" value="2">2</option>
+                    <option class="numberOfRolls" value="3">3</option>
+                    <option class="numberOfRolls" value="4">4</option>
+                    <option class="numberOfRolls" value="5">5</option>
+                    <option class="numberOfRolls" value="6">6</option>
+                </select>
+
+                <br>
+            </form>
 
 
-<div th:if="${roll == null}">
-    <H1>Guess A Number</H1>
-    <form action="/roll-dice" method="post">
-        <input type="text" name="roll" id="roll-ip" class="field"/>
-        <button>Roll The Dice</button>
-    </form>
+        </form>
+    </div>
+    <div th:unless="${roll == null}">
+        <H1>You guessed: </H1>
+        <H1 th:text="${roll}"></H1>
+        <H1>You rolled: </H1>
+        <H1 th:text="${randRoll}"></H1>
+        <H1 th:text="${rollResponse}"></H1>
+        <form action="/roll-dice" method="post">
+            <input type="text" name="roll" id="roll-ip" class="field"/>
+            <button>Roll The Dice</button>
+        </form>
+    </div>
+
+
 </div>
-<div th:unless="${roll == null}">
-    <H1>You guessed: </H1>
-    <H1 th:text="${roll}"></H1>
-    <H1>You rolled: </H1>
-    <H1 th:text="${randRoll}"></H1>
-    <H1 th:text="${rollResponse}"></H1>
-    <form action="/roll-dice" method="post">
-        <input type="text" name="roll" id="roll-ip" class="field"/>
-        <button>Roll The Dice</button>
-    </form>
-</div>
 
+<nav th:replace="partials/partials :: footer"></nav>
 
-    <nav th:replace="partials/partials :: footer"></nav>
 </body>
 </html>

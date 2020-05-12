@@ -31,20 +31,20 @@ public class AdController {
         return "ads/index";
     }
 
-        @GetMapping("/ad")
-        public String showAd(Model model){
-            List<Ad> adList = new ArrayList<>();
-            Ad ad = new Ad("book", "good'un");
-            model.addAttribute("as", adList);
-            return "ads/show";
+    @GetMapping("/ad")
+    public String showAd(Model model) {
+        List<Ad> adList = new ArrayList<>();
+        Ad ad = new Ad("book", "good'un");
+        model.addAttribute("as", adList);
+        return "ads/show";
     }
 
     @PostMapping("/ads/create")
     public String createAd(@RequestParam(name = "title") String title,
-                           @RequestParam(name = "description")String description,
-                           Model model){
-    Ad ad = new Ad(title, description);
-    model.addAttribute("ad", ad);
+                           @RequestParam(name = "description") String description,
+                           Model model) {
+        Ad ad = new Ad(title, description);
+        model.addAttribute("ad", ad);
         return "ads/show";
 
     }

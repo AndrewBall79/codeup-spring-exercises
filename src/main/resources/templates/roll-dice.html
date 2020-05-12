@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ad</title>
+
+</head>
+<body>
+<nav th:replace="partials/partials :: navbar"></nav>
+
+
+<div th:if="${roll == null}">
+    <H1>Guess A Number</H1>
+    <form action="/roll-dice" method="post">
+        <input type="text" name="roll" id="roll-ip" class="field"/>
+        <button>Roll The Dice</button>
+    </form>
+</div>
+<div th:unless="${roll == null}">
+    <H1>You guessed: </H1>
+    <H1 th:text="${roll}"></H1>
+    <H1>You rolled: </H1>
+    <H1 th:text="${randRoll}"></H1>
+    <H1 th:text="${rollResponse}"></H1>
+    <form action="/roll-dice" method="post">
+        <input type="text" name="roll" id="roll-ip" class="field"/>
+        <button>Roll The Dice</button>
+    </form>
+</div>
+
+
+    <nav th:replace="partials/partials :: footer"></nav>
+</body>
+</html>

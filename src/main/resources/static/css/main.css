@@ -46,3 +46,27 @@ a:link, a:visited, a:active, .navbar{
     font-size: 20px;
     border: 2px solid black;
 }
+
+.post-title{
+    height: 60px;
+    font-size: 30px;
+    background: black;
+    color: whitesmoke;
+    font-family: Helvetica, sans-serif;
+}
+.post-body{
+    height: 150px;
+    font-size: 20px;
+    background: grey;
+    color: black;
+    font-family: Helvetica,sans-serif;
+
+}
+.post-type{
+    height: 40px;
+    font-size: 20px;
+    background: dimgrey;
+    color: whitesmoke;
+    font-family: Helvetica, sans-serif;
+
+}

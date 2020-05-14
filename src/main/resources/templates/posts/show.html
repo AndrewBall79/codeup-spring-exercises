@@ -5,14 +5,22 @@
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
-<div>
-    <p class="ad-title" th:text="${post.title}"></p>
-    <p class="ad-desc" th:text="${post.body}"></p>
-    <p class="ad-desc" th:text="${post.type}"></p>
-
+<div class="container">
+    <p class="post-title" th:text="${post.title}"></p>
+    <p class="post-body" th:text="${post.body}"></p>
+    <p class="post-body" th:text="${post.type}"></p>
+    <a class="edit" th:href="@{'/posts/edit/'+${post.id}}" >Edit Post</a>
+<!--    <button id="deleteButton></button>-->
+    <a class="delete" th:href="@{'/posts/delete/'+${post.id}}" >Delete Post</a>
 </div>
 
 <nav th:replace="partials/partials :: footer"></nav>
-
+<!--<script>-->
+<!--    $(#deleteButton).click(function(){-->
+<!--        $.post("@{'/posts", function (data, status) {-->
+<!--            alert("Data: " + data + "\nStatus: " + status)-->
+<!--        })-->
+<!--    })-->
+<!--</script>-->
 </body>
 </html>

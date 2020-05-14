@@ -9,10 +9,13 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
+    @Column(nullable = false, length = 100)
     private String type;
 
     public Post(){}

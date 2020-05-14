@@ -5,14 +5,19 @@
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
-<div>
+<div class="container">
     <div th:each="post : ${posts}">
-        <p class="post-title" th:text="${post.title}"></p>
-        <p class="post-body" th:text="${post.body}"></p>
+       <a th:href="@{'/posts/'+${post.id}}" >
+           <p class="post-title" th:text="${post.title}"></p></a>
+           <p class="post-body" th:text="${post.body}"></p>
         <p class="post-type" th:text="${post.type}"></p>
 
     </div>
+    <form action="/posts/create">
+    <button>Create New Post</button>
+    </form>
 </div>
+
 
 <nav th:replace="partials/partials :: footer"></nav>
 

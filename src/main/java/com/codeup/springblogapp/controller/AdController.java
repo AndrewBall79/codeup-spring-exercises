@@ -1,63 +1,62 @@
 package com.codeup.springblogapp.controller;
 
-
 import com.codeup.springblogapp.model.Ad;
+import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.AdRepository;
+import com.codeup.springblogapp.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class AdController {
-    private final AdRepository adRepo;
 
-    public AdController(AdRepository adDao) {
-        this.adRepo = adDao;
+    private UserRepository userDao; // this has all the functions of JpaRepository
+    private AdRepository adDao; // this has all the functions of JpaRepository
+
+    public AdController(UserRepository userDao, AdRepository adDao) {
+        this.userDao = userDao;
+        this.adDao = adDao;
     }
 
     @GetMapping("/ads")
-    public String index(Model model) {
-        model.addAttribute("ads", adRepo.findAll());
+    public String showAds(Model model) {
+        model.addAttribute("ads", adDao.findAll());
         return "ads/index";
     }
 
-//    @GetMapping("/ads")
-//    public String showAds(Model model) {
-//        List<Ad> adList = new ArrayList<>();
-//        Ad ad = new Ad("67 cool car", "good'un");
-//        adList.add(ad);
-//        ad = new Ad("broken desk", "No top");
-//        adList.add(ad);
-//        ad = new Ad("blue box", "regular box, except it's blue");
-//        adList.add(ad);
-//        ad = new Ad("porthole from Titanic", "the real deal Folks!");
-//        adList.add(ad);
-//        ad = new Ad("Old clothes", "Gamgam passed away, now I have all these old clothes. They hardly smell of Gamgam");
-//        adList.add(ad);
-//        model.addAttribute("ads", adList);
-//        return "ads/index";
-//    }
-
-    @GetMapping("/ad")
-    public String showAd(Model model) {
-        List<Ad> adList = new ArrayList<>();
-        Ad ad = new Ad("book", "good'un");
-        model.addAttribute("as", adList);
+    @GetMapping("/ads/{id}")
+    public String showAd(@PathVariable long id, Model model) {
+        Ad ad = adDao.getOne(id);
+        model.addAttribute("ad", ad);
         return "ads/show";
     }
 
-    @PostMapping("/ads/create")
-    public String createAd(@RequestParam(name = "title") String title,
-                           @RequestParam(name = "description") String description,
-                           Model model) {
-        Ad ad = new Ad(title, description);
+    @GetMapping("/ads/{id}/edit")
+    public String editAd(@PathVariable long id, Model model) {
+        Ad ad = adDao.getOne(id);
+        User user = userDao.getOne(1L);
+        ad.setUser(user);
         model.addAttribute("ad", ad);
-        return "ads/show";
+        return "ads/create";
+    }
 
+    @GetMapping("/ads/create")
+    public String gotoCreateAdForm(Model model) {
+        Ad ad = new Ad();
+        User user = userDao.getOne(1L);
+        ad.setUser(user);
+        model.addAttribute("ad", ad);
+        return "ads/create";
+    }
+
+    @PostMapping("/ads/create")
+    public RedirectView createAd(@ModelAttribute Ad ad) {
+        adDao.save(ad);
+        return new RedirectView("/ads/" + ad.getId());
     }
 }

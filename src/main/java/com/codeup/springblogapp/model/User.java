@@ -30,6 +30,14 @@ public class User {
             mappedBy = "user")
     private List<Ad> ads;
 
+    //each ad can only have one user
+//    @ManyToOne
+//    private User user;
+
+    //User can have multiple posts
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "user")
+    private List<Post> posts;
 
     public User(){}
 

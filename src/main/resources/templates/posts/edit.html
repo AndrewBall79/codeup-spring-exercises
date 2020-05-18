@@ -7,18 +7,15 @@
 
 <div class="container">
     <h2 class="alert-danger">Edit Post</h2>
-    <form th:action="@{'/posts/'+${post.id}+'/edit'}" method="post">
-        <label class="post-title" for="title">Title: </label>
+    <form th:action="@{'/posts/edit/'+${post.id}}" th:method="post" th:object="${post}">
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{user}" />
         <br>
-        <input type="text" name="title" id="title" class="field" th:value="${post.title}"/>
-        <br><br>
-        <label class="post-body" for="body">Description:</label>
+        <input th:field="*{title}" type="text" id="title" class="field"/>
         <br>
-        <textarea type="text" name="body" id="body" class="field" rows="4" cols="50"
-                  th:text="${post.body}"></textarea><br>
-        <label class="post-body" for="type">Type:</label>
+        <textarea th:field="*{body}"class="field" type="text" rows="4" cols="50"></textarea>
         <br>
-        <textarea type="text" name="type" id="type" class="field" th:text="${post.type}"></textarea><br>
+        <textarea th:field="*{type}" class="field"></textarea><br>
         <button>Save Changes</button>
     </form>
 </div>

@@ -7,7 +7,7 @@
 //import java.util.List;
 //
 //public interface BookRepository extends JpaRepository<Book, Long> {
-//    List<Book> findByPubYear(int year);
-//    long deleteByAuthor(String author);
+////    List<Book> findByPubYear(int year);
+////    long deleteByAuthor(String author);
 //
 //}

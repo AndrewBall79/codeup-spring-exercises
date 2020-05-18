@@ -12,15 +12,11 @@
     <a class="edit" th:href="@{'/posts/edit/'+${post.id}}" >Edit Post</a>
 <!--    <button id="deleteButton></button>-->
     <a class="delete" th:href="@{'/posts/delete/'+${post.id}}" >Delete Post</a>
+    <span>Contact the author:  <a th:text="${post.user.email}"></a> </span>
+
 </div>
 
+
 <nav th:replace="partials/partials :: footer"></nav>
-<!--<script>-->
-<!--    $(#deleteButton).click(function(){-->
-<!--        $.post("@{'/posts", function (data, status) {-->
-<!--            alert("Data: " + data + "\nStatus: " + status)-->
-<!--        })-->
-<!--    })-->
-<!--</script>-->
 </body>
 </html>

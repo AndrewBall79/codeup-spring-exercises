@@ -13,9 +13,9 @@
     <H1 class="alert-danger">ARE YOU SURE?</H1>
     <button>yes, delete</button>
 
-    <a th:href="@{'/posts/'+${post.id}}">
-        <button>No, don't delete</button></a>
     </form>
+    <a th:action="@{'/posts/index'}">
+        <button>No, don't delete</button></a>
 </div>
 
 <nav th:replace="partials/partials :: footer"></nav>

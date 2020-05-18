@@ -6,16 +6,11 @@
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
-<form th:action="@{/ads/create}" th:method="post" th:object="${ad}">
-    <input type="hidden" th:field="*{id}" />
-    Title:
-    <input th:field="*{title}" />
-    <br/>
-    Description:
-    <input th:field="*{description}" />
-    <br/>
-    <input type="submit" />
-</form>
+<div class="container">
+    <h2>Ad</h2>
+    <p style="font-weight: bold;" th:text="${ad.title}"></p>
+    <p style="padding-left: 2rem;" th:text="${ad.description}"></p>
+</div>
 
 <nav th:replace="partials/partials :: footer"></nav>
 

@@ -1,7 +1,6 @@
 package com.codeup.springblogapp.controller;
 
 
-
 import com.codeup.springblogapp.model.Ad;
 import com.codeup.springblogapp.model.Post;
 import com.codeup.springblogapp.model.User;
@@ -20,7 +19,7 @@ public class PostController {
     private UserRepository userDao;
     private final PostRepository postRepo;
 
-    public PostController(UserRepository userDao, PostRepository postDao){
+    public PostController(UserRepository userDao, PostRepository postDao) {
         this.userDao = userDao;
         this.postRepo = postDao;
     }
@@ -32,61 +31,61 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-        public String showIndexPage(Model model){
+    public String showIndexPage(Model model) {
         List<Post> postList = postRepo.findAll();
         model.addAttribute("posts", postList);
-        return "posts/index";
+        return "redirect:/index";
     }
 
-
-
-
-
-
     @GetMapping("/posts/{id}")
-    public String showAnIndividualPost(@PathVariable long id, Model model){
+    public String showAnIndividualPost(@PathVariable long id, Model model) {
         Post thisPost = postRepo.getOne(id);
-        model.addAttribute("post",thisPost);
+        model.addAttribute("post", thisPost);
         return "posts/show";
     }
 
-@GetMapping("/posts/delete/{id}")
-public String getDeletePostForm(@PathVariable long id, Model model){
-    Post aPost = postRepo.getOne(id);
-    model.addAttribute("post", aPost);
-    return "posts/delete";
-}
-
-    @PostMapping("/posts/delete/{id}")
-    public String deletePost(@PathVariable long id){
+    @GetMapping("/posts/{id}/delete")
+    public String getDeletePostForm(@PathVariable long id, Model model) {
         Post aPost = postRepo.getOne(id);
-        postRepo.delete(aPost);
-        return "/posts/show";
+        model.addAttribute("post", aPost);
+        return "posts/delete";
     }
 
-    @GetMapping("/posts/edit/{id}")
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id) {
+        Post aPost = postRepo.getOne(id);
+        postRepo.delete(aPost);
+        return "redirect:/index";
+    }
+
+    @GetMapping("/posts/{id}/edit")
     public String editPost(@PathVariable long id, Model model) {
         Post post = postRepo.getOne(id);
         User user = userDao.getOne(1L);
         post.setUser(user);
         model.addAttribute("post", post);
-        return "posts/create";
+        return "/posts/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String editPost(@ModelAttribute Post post) {
+        postRepo.save(post);
+        return "redirect:/index";
     }
 
     @GetMapping("posts/create")
-    public String submitCreatePost(Model model){
+    public String submitCreatePost(Model model) {
         Post post = new Post();
         User user = userDao.getOne(1L);
         post.setUser(user);
         model.addAttribute("post", post);
         return "posts/create";
-
     }
 
     @PostMapping("/posts/create")
-    public RedirectView showCreateForm(@ModelAttribute Post post) {
+    public String showCreateForm(@ModelAttribute Post post) {
         postRepo.save(post);
-        return new RedirectView("/index");
+        return "redirect:/index";
     }
 
 

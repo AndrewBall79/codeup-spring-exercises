@@ -3,10 +3,12 @@
 <head th:replace="partials/partials :: head">
     <title>Edit</title>
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
-    <h2 class="alert-danger">Edit Post</h2>
+    <h2 class="alert">Edit Post</h2>
     <form th:action="@{'/posts/'+${post.id}+'/edit'}" th:method="post" th:object="${post}">
         <input type="hidden" th:field="*{id}" />
         <br>

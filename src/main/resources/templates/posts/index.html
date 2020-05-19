@@ -3,22 +3,26 @@
 <head th:replace="partials/partials :: head">
     <title>Index</title>
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
-    <div th:each="post : ${posts}">
+    <h1 class="subheader">My Blog</h1>
+
+    <div class="container2" th:each="post : ${posts}">
+        <div class="post-title">
         <a th:href="@{'/posts/'+${post.id}}">
-            <p class="post-title" th:text="${post.title}"></p></a>
+            <p th:text="${post.title}"></p></a>
+        </div>
         <p class="post-body" th:text="${post.body}"></p>
-<!--        <p class="post-type" th:text="${post.type}"></p>-->
-
-
+        <br>
     </div>
+    <br>
     <form action="/posts/create">
         <button>Create New Post</button>
     </form>
+    <br>
 </div>
-
 
 <nav th:replace="partials/partials :: footer"></nav>
 

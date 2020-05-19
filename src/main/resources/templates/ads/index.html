@@ -4,10 +4,12 @@
     <title>Index</title>
 <body>
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
-    <h2>Ad List</h2>
+    <h2 class="subheader">Ad List</h2>
     <div th:each="ad : ${ads}">
         <p style="font-weight: bold;" th:text="${ad.title}"></p>
         <p style="padding-left: 2rem;" th:text="${ad.description}"></p>

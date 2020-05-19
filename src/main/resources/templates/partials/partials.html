@@ -10,15 +10,13 @@
     <meta name="author" content="">
     <!-- include stylesheets, etc here -->
     <link href="../static/css/bootstrap.css.html" rel="stylesheet" th:href="@{/css/bootstrap.css.html}"/>
-
-    <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
 
     <link th:href="@{/css/dice-roll.css}" rel="stylesheet"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" th:src="@{../js/dice-roll.js}" src="../js/dice-roll.js"></script>
 </head>
 <body>
+
+<h1 th:fragment="header" class="header">THE BLOG</h1>
 <nav th:fragment="navbar" class="navbar navbar-default">
     <ul class="nav navbar-nav">
         <li><a href="/home">Home</a></li>
@@ -29,17 +27,12 @@
         <li><a href="/roll-dice">Roll'a'Die</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/register"><form th:action="@{/register}" th:method="post">Register</form></a></li>
-        <li>
-            <form th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-            </form>
-        </li>
+        <li><form th:action="@{/logout}" th:method="post"><button class="btn-link btn" style="margin-top: 8px">Logout</button>
+            </form></li>
     </ul>
 </nav>
 
 <standard_scripts th:fragment="footer">
-    <script th:src="@{/js/jquery-2.2.4.js}"></script>
-    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js}"></script>
 </standard_scripts>
 </body>
 </html>

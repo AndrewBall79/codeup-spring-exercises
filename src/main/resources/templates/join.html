@@ -4,12 +4,16 @@
     <title>Join</title>
 
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <br>
 <div class="container">
-    <div class="alert alert-danger" th:if="${cohort == null}">
-        Something bad happened!
+    <div class="alert" th:if="${cohort == null}">
+        <br>
+        <h2 class="subheader">Something bad happened!</h2>
+        <br>
     </div>
 
     <div class="welcome" th:unless="${cohort == null}">
@@ -18,7 +22,9 @@
     <br>
     <form action="/join" method="post">
         <input type="text" name="cohort" id="cohort-ip" class="field"/>
+        <br>
         <button>Join now</button>
+        <br>
     </form>
 </div>
 

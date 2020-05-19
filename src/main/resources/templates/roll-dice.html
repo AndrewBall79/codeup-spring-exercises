@@ -8,6 +8,8 @@
 
 
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="partials/partials :: navbar"></nav>
 <div class="container main-page">
     <h1 id="main-header1" th:class="@{inferno}">DR&CG</h1>
@@ -15,7 +17,7 @@
     <div th:if="${roll == null}">
         <h2 id="main-header">ROLL SOME DICE and GUESS A NUMBER</h2>
         <form class="main-page" action="/roll-dice" method="post">
-            <input type="text" name="roll" id="roll-ip" class="field"/>
+            <label for="roll-ip"></label><input type="text" name="roll" id="roll" class="field"/>
             <br>
             <button>ROLL the DICE</button>
             <br>

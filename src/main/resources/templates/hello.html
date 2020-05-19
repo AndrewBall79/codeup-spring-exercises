@@ -4,10 +4,12 @@
     <title>Hello</title>
 <body>
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="/partials/partials :: navbar"></nav>
 
 
-    <h1>Hello, <span th:text="${name}">World</span>!</h1>
+    <h1 class="subheader">Hello, <span th:text="${name}">World</span>!</h1>
 
 
 <nav th:replace="partials/partials :: footer"></nav>

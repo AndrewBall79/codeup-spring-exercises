@@ -3,14 +3,16 @@
 <head th:replace="partials/partials :: head">
     <title>Show</title>
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
     <p class="post-title" th:text="${post.title}"></p>
     <p class="post-body" th:text="${post.body}"></p>
-<!--    <p class="post-body" th:text="${post.type}"></p>-->
+
     <a class="edit" th:href="@{'/posts/'+${post.id}+'/edit'}" >Edit Post</a>
-<!--    <button id="deleteButton></button>-->
+
     <a class="delete" th:href="@{'/posts/'+${post.id}+'/delete'}" >Delete Post</a>
     <span>Contact the author:  <a th:text="${post.user.email}"></a> </span>
 

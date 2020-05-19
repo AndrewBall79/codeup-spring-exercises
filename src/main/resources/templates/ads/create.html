@@ -3,10 +3,12 @@
 <head th:replace="partials/partials :: head">
     <title>Create</title>
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
-    <h2>Create Ad</h2>
+    <h2 class="subheader">Create Ad</h2>
 
     <form th:action="@{/ads/create}" th:method="post" th:object="${ad}">
         <input type="hidden" th:field="*{id}" />

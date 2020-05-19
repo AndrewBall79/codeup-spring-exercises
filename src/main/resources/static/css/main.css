@@ -1,20 +1,39 @@
-a:link, a:visited, a:active, .navbar{
-    text-transform: uppercase;
-    background: dimgrey;
-    color: ghostwhite;
-    font-family: Helvetica, sans-serif;
-    font-size: 15px;
-    text-decoration: none;
-    height: 40px;
+.header{
+    font-size: 80px;
     margin: 0px;
+    font-family: Copperplate, sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
+
+.navbar, a:link, a:visited, a:active{
+    text-decoration: none;
+    color: ghostwhite;
+    text-transform: uppercase;
+}
+
+
 .nav{
+    background: dimgrey;
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    height: 40px;
+    margin: 0px;
+    text-shadow: 0px 0px 4px black;
+}
+
+.subheader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: Impact, Charcoal, sans-serif;
 }
 
 .h1{
@@ -23,62 +42,50 @@ a:link, a:visited, a:active, .navbar{
     justify-content: center;
 }
 
+
 .container{
-    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background: silver;
     border: black 2px solid;
-    border-radius: 4px;
+    border-radius: 2px;
 }
-
-.alert{
-    background: red;
-    color: whitesmoke;
-    width: 100%;
-    text-transform: uppercase;
-    font-size: 20px;
-    border: 2px solid black;
+.container2{
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.welcome{
-    background: blue;
-    color: whitesmoke;
-    width: 400px;
-    text-transform: uppercase;
-    font-size: 20px;
-    border: 2px solid black;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 2px;
 }
 
 .post-title{
-    width: 100%;
     height: 60px;
+    width: 100%;
     font-size: 30px;
     background: black;
-    color: blue;
-    font-family: Helvetica, sans-serif;
+    color: ghostwhite;
+    margin: 0px;
+    font-family: Impact, Charcoal, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: dimgrey 2px solid;
     border-radius: 4px;
+    box-shadow: 0px 0px 5px black;
 }
 
 .post-body{
-    width: 100%;
     height: 150px;
+    width: 100%;
     font-size: 20px;
     background: grey;
     color: black;
     font-family: Helvetica,sans-serif;
     padding: 10px;
-    border: black 2px solid;
     border-radius: 4px;
+    box-shadow: 0px 0px 5px black;
 }
 
 .post-type{
@@ -93,4 +100,26 @@ a:link, a:visited, a:active, .navbar{
     align-items: center;
     border: black 2px solid;
     border-radius: 4px;
+}
+
+.alert{
+    background: red;
+    color: whitesmoke;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 20px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0px 0px 5px black;
+}
+
+.welcome{
+    background: blue;
+    color: whitesmoke;
+    width: 400px;
+    text-transform: uppercase;
+    font-size: 20px;
+    border: 2px solid black;
 }

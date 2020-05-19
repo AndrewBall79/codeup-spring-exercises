@@ -3,6 +3,8 @@
 <head th:replace="partials/partials :: head">
     <title>Delete</title>
 <body>
+<nav th:replace="/partials/partials :: header"></nav>
+
 <nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="container">
@@ -10,7 +12,7 @@
     <form th:action="@{'/posts/'+${post.id}+'/delete/'}" method="post">
     <input type="hidden" th:field="${post.id}">
 
-    <H1 class="alert-danger">ARE YOU SURE?</H1>
+    <H1 class="alert">ARE YOU SURE?</H1>
     <button>yes, delete</button>
 
     </form>

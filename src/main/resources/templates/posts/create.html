@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/partials :: head">
     <title>Create</title>
 <body>
 <nav th:replace="partials/partials :: navbar"></nav>
 
+<!-- ... -->
+<!--<div sec:authentication="!isAuthenticated()">-->
+<!--    <div th:action="@{/login}"></div>-->
+<!--</div>-->
+<div sec:authorize="isAuthenticated()">
+
 <div class="container">
     <h2 class="post-title">Create Post</h2>
-    <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+    <form th:action="@{|/posts/create|}" th:method="post" th:object="${post}">
+        <input type="hidden" th:field="*{id}" />
         Title:
         <br>
-        <input th:field="*{title}"class="field"/>
+        <input th:field="*{title}" class="field"/>
         <br>
         Description:
         <br>
         <textarea th:field="*{body}" class="field" rows="4" cols="50"></textarea><br>
         Type:
         <br>
-        <textarea th:field="*{type}" class="field"></textarea><br>
+<!--        <textarea th:field="*{type}" class="field"></textarea><br>-->
         <button>Save</button>
     </form>
 </div>
+</div>
+
 
 <nav th:replace="partials/partials :: footer"></nav>
 

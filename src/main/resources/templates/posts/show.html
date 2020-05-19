@@ -8,7 +8,7 @@
 <div class="container">
     <p class="post-title" th:text="${post.title}"></p>
     <p class="post-body" th:text="${post.body}"></p>
-    <p class="post-body" th:text="${post.type}"></p>
+<!--    <p class="post-body" th:text="${post.type}"></p>-->
     <a class="edit" th:href="@{'/posts/'+${post.id}+'/edit'}" >Edit Post</a>
 <!--    <button id="deleteButton></button>-->
     <a class="delete" th:href="@{'/posts/'+${post.id}+'/delete'}" >Delete Post</a>

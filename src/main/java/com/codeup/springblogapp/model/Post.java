@@ -12,50 +12,31 @@ public class Post {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(nullable = false)
     private String body;
 
-    @Column(nullable = false, length = 100)
-    private String type;
-
-    // mapping
-
+    // Set our relationship between the posts, and users.
+    // many posts can belong to one user (@ManyToOne)
+    // posts ---> user
+    // many  ---> one
     @ManyToOne
-    @JoinColumn (name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    public Post(String title, String body, User user){
+    public Post() {}
+
+    public Post(String title, String body, User user) {
         this.title = title;
         this.body = body;
         this.user = user;
     }
 
-    public Post(String title, String body, User user, long id){
+    public Post(String title, String body, User user, long id) {
         this.title = title;
         this.body = body;
         this.user = user;
         this.id = id;
     }
-
-    public Post(){}
-
-    public Post(long id, String type, String body, String title) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-        this.type = type;
-    }
-
-    public Post(String title, String body, String type) {
-        this.title = title;
-        this.body = body;
-        this.type = type;
-    }
-
-    public User getUser(){return user;}
-    public User setUser(User author){return user;}
-
-
 
     public long getId() {
         return id;
@@ -64,11 +45,11 @@ public class Post {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getTitle() {
+        return title;
     }
-    public void setType(String type) {
-        this.type = type;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getBody() {
@@ -78,10 +59,10 @@ public class Post {
         this.body = body;
     }
 
-    public String getTitle() {
-        return title;
+    public User getUser() {
+        return user;
     }
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -36,43 +36,33 @@ public class Ad {
             // name for the id of the related model inverseJoinColumns
             inverseJoinColumns = {@JoinColumn(name = "category_id")}
     )
+
+
+//    @ManyToMany(mappedBy = "ads")
     private List<Category> categories;
 
-    public Ad() {
-    }
+    public Ad(){}
 
     public Ad(String title, String description) {
         this.title = title;
         this.description = description;
     }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
+    public String getDescription() {return description;}
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public User getUser() { return user; }
+    public void setUser(User user){ this.user = user; }
 
-    public User getUser() {
-        return user;
-    }
+
 
     public List<AdImage> getImages() {
         return images;
@@ -90,6 +80,4 @@ public class Ad {
         this.categories = categories;
     }
 
-    public void setUser(User one) {
-    }
 }

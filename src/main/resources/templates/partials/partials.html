@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <title>Home</title>
 <head th:fragment="head">
     <meta charset="UTF-8"/>
@@ -25,8 +26,14 @@
         <li><a href="/join">Join</a></li>
         <li><a href="/welcome">Welcome</a></li>
         <li><a href="/posts">Posts</a></li>
-
         <li><a href="/roll-dice">Roll'a'Die</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register"><form th:action="@{/register}" th:method="post">Register</form></a></li>
+        <li>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+            </form>
+        </li>
     </ul>
 </nav>
 

@@ -1,15 +1,14 @@
 package com.codeup.springblogapp.controller;
 
-
-import com.codeup.springblogapp.model.Ad;
 import com.codeup.springblogapp.model.Post;
 import com.codeup.springblogapp.model.User;
 import com.codeup.springblogapp.repositories.PostRepository;
 import com.codeup.springblogapp.repositories.UserRepository;
+import com.codeup.springblogapp.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -18,10 +17,14 @@ public class PostController {
 
     private UserRepository userDao;
     private final PostRepository postRepo;
+    private EmailService emailService;
 
-    public PostController(UserRepository userDao, PostRepository postDao) {
+    public PostController(UserRepository userDao, PostRepository postDao, EmailService emailService
+    ) {
+
         this.userDao = userDao;
         this.postRepo = postDao;
+        this.emailService = emailService;
     }
 
     @GetMapping("/index")
@@ -58,11 +61,10 @@ public class PostController {
         return "redirect:/index";
     }
 
+
     @GetMapping("/posts/{id}/edit")
     public String editPost(@PathVariable long id, Model model) {
         Post post = postRepo.getOne(id);
-        User user = userDao.getOne(1L);
-        post.setUser(user);
         model.addAttribute("post", post);
         return "/posts/edit";
     }
@@ -75,8 +77,8 @@ public class PostController {
 
     @GetMapping("posts/create")
     public String submitCreatePost(Model model) {
-        Post post = new Post();
         User user = userDao.getOne(1L);
+        Post post = new Post();
         post.setUser(user);
         model.addAttribute("post", post);
         return "posts/create";
@@ -84,8 +86,17 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String showCreateForm(@ModelAttribute Post post) {
+        User author = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(author == null){
+            return "redirect:/login";
+        }else{
+        post.setUser(author);
         postRepo.save(post);
+        emailService.prepareAndSend(post, "You Created a post!",
+                "Title: "+ post.getTitle()+"\n"+
+                        "Description: "+ post.getBody());
         return "redirect:/index";
+        }
     }
 
 

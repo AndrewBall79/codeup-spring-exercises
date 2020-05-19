@@ -9,13 +9,12 @@
     <h2 class="alert-danger">Edit Post</h2>
     <form th:action="@{'/posts/'+${post.id}+'/edit'}" th:method="post" th:object="${post}">
         <input type="hidden" th:field="*{id}" />
-        <input type="hidden" th:field="*{user}" />
         <br>
-        <input th:field="*{title}"  type="text" id="title" class="field"/>
+        <input th:field="*{title}"  type="text" id="title" class="field" />
         <br>
         <textarea th:field="*{body}"  class="field" type="text" rows="4" cols="50"></textarea>
         <br>
-        <textarea th:field="*{type}" class="field"></textarea><br>
+<!--        <textarea th:field="*{type}" class="field"></textarea><br>-->
         <button>Save Changes</button>
     </form>
 </div>

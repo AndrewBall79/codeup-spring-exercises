@@ -2,8 +2,7 @@ package com.codeup.springblogapp.services;
 
 import com.codeup.springblogapp.model.Ad;
 import com.codeup.springblogapp.model.Post;
-import javafx.print.PageOrientation;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;

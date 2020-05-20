@@ -39,7 +39,7 @@ public class PostController {
     public String showIndexPage(Model model) {
         List<Post> postList = postDao.findAll();
         model.addAttribute("posts", postList);
-        return "redirect:/index";
+        return "posts/index";
     }
 
     @GetMapping("/posts/{id}")

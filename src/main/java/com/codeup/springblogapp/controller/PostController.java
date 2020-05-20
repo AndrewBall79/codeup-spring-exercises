@@ -69,7 +69,7 @@ public class PostController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         model.addAttribute("post", post);
-        return "/posts/edit";
+        return "/posts/{id}/edit";
     }
 
     @PostMapping("/posts/{id}/edit")

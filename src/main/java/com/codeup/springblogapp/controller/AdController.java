@@ -65,7 +65,7 @@ public class AdController {
         User user = userDao.getOne(1L);
         ad.setUser(user);
         model.addAttribute("ad", ad);
-        return "/ads/create";
+        return "ads/create";
     }
 
     @PostMapping("/ads/create")
@@ -79,7 +79,7 @@ public class AdController {
         emailService.prepareAndSend(ad, "You Created an ad!",
                 "Title: "+ ad.getTitle()+"\n"+
                 "Description: "+ ad.getDescription());
-        return new RedirectView("/ads/" + ad.getId());
+        return new RedirectView("ads/" + ad.getId());
     }
 
     @PostMapping("/ads/{id}/delete")
